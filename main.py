@@ -1,4 +1,9 @@
 #cadastro de usuário e senha
+#DECLARAR FUNÇÃO
+def validar_senha():
+    validar_senha = input("digite sua senha")
+    if validar_senha == senha :
+        return True #retor verdadeiro
 saldo = 0.0 #varialvel que guardará o saldo do usuário
 while True:
     #menu principal
@@ -28,26 +33,23 @@ while True:
                     saldo = saldo + valor_deposito #atualiza o valor 
                
                 elif escolha_principal == 2: #saque
-                    valor_saque = float(("digite o valor do saque:"))   
-                    senha_saque = input("digite sua senha:")
-                    if senha_saque == senha: #se a senha correta
+                    valor_saque = float(input("digite o valor do saque:"))   
+                   
+                    if validar_senha(): #se a senha correta
                         saldo = saldo - valor_saque #subtrai o valor do saldo 
                     else:   
                         print("senha incorreta")
-                elif escolha_principal == 3 #se usuario escolher pix
+                elif escolha_principal == 3: #se usuario escolher pix
                     valor_pix = float(input("digite o valor do pix:"))
-                    senha_pix = input("digite sua senha:")
-                    if senha_pix == senha:
+                    if validar_senha():
                        saldo = saldo - valor_pix
                     else:
                        print("senha incorreta:")
                 elif escolha_principal == 4: #se usuario escolher visualizar o extrato
-                     senha_extrato = input("digite sua senha:")
-                     if senha_extrato == senha:
+                     if validar_senha():
                          print("extrato",saldo)
-                elif escolha_principal == 5 #encerrar
-                      senha_encerrar = input("digite sua senha:") 
-                      if senha_encerrar == senha:  
+                elif escolha_principal == 5: #encerrar
+                      if validar_senha():  
                             break           
         
         else:
